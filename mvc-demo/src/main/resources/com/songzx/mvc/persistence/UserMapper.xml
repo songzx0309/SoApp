@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.songzx.mvc.persistence.UserMapper">
+
+	<insert id="addUser" parameterType="User">
+   		insert into user values #{id}, #{name}, #{password}
+	</insert>
+  
+  	<delete id="deleteUser" parameterType="User">
+  		delete 
+  	</delete>
+  	
+	<select id="getUserByName" parameterType="string" resultType="User">
+  		select id, name, password from user where name=#{name}
+	</select>
+
+	<update id="updateUser" parameterType="User">
+		update user set password=#{password} where id=#{id}
+	</update>
+
+</mapper>
